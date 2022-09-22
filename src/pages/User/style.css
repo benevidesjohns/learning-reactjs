@@ -32,6 +32,7 @@
     height: 30px;
     width: 80px;
     border-radius: 5px;
+    text-decoration: none;
     border: 2px solid #da552f;
     background: none;
     margin-top: 10px;
@@ -54,4 +55,8 @@
     align-items: center;
     margin-bottom: 20px;
     padding: 10px;
+}
+
+#create-link{
+    margin: 50px;
 }

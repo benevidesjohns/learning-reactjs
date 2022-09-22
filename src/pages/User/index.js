@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from '../../services/api';
+import { Link } from "react-router-dom";
 import './style.css';
 
 export default function User() {
@@ -10,11 +11,20 @@ export default function User() {
         });
     }, [])
 
-    console.log(users);
+    async function handleDelete(id){
+        try{
+            await api.delete(`/users/${id}`);
+            setUsers(users.filter(user => user.id != id));
+        }
+        catch(error){
+            alert('Erro ao deletar!');
+        }
+    }
 
     return (
         <div id="user-container">
             <h1>Lista de usuários</h1>
+            <Link className="button" id="create-link" to={"/create"}>Criar</Link>
             <ul className="user-list">
                 {users.map(user => (
                     <li key={user.id}>
@@ -28,11 +38,10 @@ export default function User() {
                         <p>{user.company}</p>
 
                         <div className="actions">
-                            <button className="button" type="button ">Deletar</button>
-                            <button className="button" type="button">Acessar</button>
+                            <Link className="button" onClick={() => handleDelete(user.id)} type="button ">Deletar</Link>
+                            <Link className="button" id="create-link" to={`/update/${user.id}`}>Acessar</Link>
                         </div>
                     </li>
-
                 ))}
             </ul>
         </div>

@@ -26,7 +26,13 @@ export default function User() {
                         <p>{user.age}</p>
                         <strong>Empresa</strong>
                         <p>{user.company}</p>
+
+                        <div className="actions">
+                            <button className="button" type="button ">Deletar</button>
+                            <button className="button" type="button">Acessar</button>
+                        </div>
                     </li>
+
                 ))}
             </ul>
         </div>

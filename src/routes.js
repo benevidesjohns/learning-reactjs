@@ -7,9 +7,9 @@ export default function Routesx() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path="/" element={<User />}/>
-                <Route path="/create" component={Profile}/>
-                <Route path="/update/:id" component={Profile}/>
+                <Route exact path="/" element={<User />} />
+                <Route path="/create" element={<Profile />} />
+                <Route path="/update/:id" element={<Profile />} />
             </Routes>
         </BrowserRouter>
     );
